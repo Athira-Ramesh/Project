@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Post Seat Price</title>
+</head>
+<body>
+    <h2>Post Seat Price</h2>
+    <form method="post">
+        {% csrf_token %}
+        <label for="bus">Select Bus:</label><br>
+        <select id="bus" name="bus" required>
+            {% for bus in buses %}
+                <option value="{{ bus.bus_id }}">{{ bus.registration_number }}</option>
+            {% endfor %}
+        </select><br><br>
+        <label for="price">Seat Price:</label><br>
+        <input type="number" id="price" name="price" required><br><br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

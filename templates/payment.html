@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Button</title>
+</head>
+<body>
+    <div class="container">
+        <!-- Payment Button -->
+		<!-- Example template code -->
+
+        <button class="pay-button" data-service-request-id="123456" data-amount="80.00">Pay Now</button>
+    </div>
+
+    <!-- Razorpay Script -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var payButtons = document.querySelectorAll('.pay-button');
+
+            payButtons.forEach(function(button) {
+                button.addEventListener('click', function(event) {
+                    var serviceRequestId = this.getAttribute('data-service-request-id');
+                    var amount = parseFloat(this.getAttribute('data-amount'));
+
+                    var options = {
+                        key: 'rzp_test_gAZvhHE8EzAvDl', // Replace with your Razorpay API key
+                        amount: amount * 100, // Amount should be in paise
+                        currency: 'INR',
+                        name: 'KSRTC',
+                        description: 'Service Payment',
+                        handler: function(response) {
+                            console.log(response);
+                            // Redirect to the success page after successful payment
+                            window.location.href = '/payment_confirmation/?amount=' + amount;
+                        },
+                        prefill: {
+                            name: 'User Name',
+                            email: 'user@example.com',
+                            contact: 'user_phone_number'
+                        },
+                        theme: {
+                            color: '#F37254'
+                        }
+                    };
+
+                    var rzp = new Razorpay(options);
+                    rzp.open();
+                });
+            });
+        });
+    </script>
+</body>
+</html>
