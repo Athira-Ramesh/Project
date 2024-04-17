@@ -2,4 +2,18 @@
 <head>
 </head>
 <body>
-<h1>Download pdf</h1>
+<h1>Payment Confirmation</h1>
+    <!-- Back Button -->
+    <button onclick="goBack()">Back</button>
+
+    <!-- Link to Index Page -->
+    <a href="{% url 'index' %}">Go to Index Page</a>
+
+    <script>
+        // JavaScript function to go back to the previous page
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>

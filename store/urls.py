@@ -106,10 +106,9 @@ urlpatterns = [
     path('submit_booking_form/', views.submit_booking_form, name='submit_booking_form'),
     path('submit-booking-form/', views.submit_booking_form, name='submit_booking_form'),
     
-    path('payment/', views.payment, name='payment'),
-    path('payment/<int:busreservation_id>/', views.payment, name='payment'),  # Updated name
+    path('payment/', views.payment, name='payment'),  # Updated name
     path('payment_success/', views.payment_success, name='payment_success'),
-    path('payment_confirmation/<int:reservation_id>/', views.payment_confirmation, name='payment_confirmation'),
+     path('payment_confirmation/', views.payment_confirmation, name='payment_confirmation'),
     path('download_pdf/', views.generate_pdf, name='download_pdf'),
   
 

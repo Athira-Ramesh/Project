@@ -660,7 +660,7 @@ tr:nth-child(even) {
     <h2>Workshop Registration Form</h2>
     <form method="POST" action="{% url 'workshopadd' %}" class="workshop-form">
         {% csrf_token %}
-        <label for="user_name">User Name:</label><br>
+        <label for="user_name">Workshop Name:</label><br>
         <input type="text" id="user_name" name="user_name" required><br><br>
         
         <label for="location">Location:</label><br>
