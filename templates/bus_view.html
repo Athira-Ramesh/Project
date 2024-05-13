@@ -648,7 +648,7 @@ tr:nth-child(even) {
                     <td>{{ bus.status }}</td>
                     <td>{{ bus.terminal.terminal_name }}</td>
                     <td><a class="view" href="{% url 'edit_bus' bus.bus_id %}">Edit</a></td>
-                    <td><a class="view" href="{% url 'delete_bus' bus.bus_id %}">Delete</a></td>
+                    <!--<td><a class="view" href="{% url 'delete_bus' bus.bus_id %}">Delete</a></td>-->
 
                 </tr>
             {% endfor %}

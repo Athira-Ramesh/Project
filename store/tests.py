@@ -1,3 +1,29 @@
+from django.test import LiveServerTestCase
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+import time
+from selenium.webdriver.common.by import By
+
+class LoginformTest(LiveServerTestCase):
+
+    def testloginpage(self):
+        driver = webdriver.Chrome()
+
+        driver.get('http://127.0.0.1:8000/login.html')
+        time.sleep(8)
+        username_input = driver.find_element(By.NAME, 'username')
+        password_input = driver.find_element(By.NAME, 'password')
+        login_button = driver.find_element(By.XPATH, "//button[text()='Sign In']")       
+        username_input.send_keys('pavi')
+        password_input.send_keys('Pavi@123')
+        login_button.send_keys(Keys.RETURN)
+
+        assert 'KSRTC' in driver.page_source
+
+
+
+
+
 # from django.test import TestCase
 
 # import unittest
@@ -85,27 +111,7 @@
 #             # Close the browser window
 #             driver.quit()
 
-from django.test import LiveServerTestCase
-from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
-import time
-from selenium.webdriver.common.by import By
 
-class LoginformTest(LiveServerTestCase):
-
-    def testloginpage(self):
-        driver = webdriver.Chrome()
-
-        driver.get('http://127.0.0.1:8000/login.html')
-        time.sleep(8)
-        username_input = driver.find_element(By.NAME, 'username')
-        password_input = driver.find_element(By.NAME, 'password')
-        login_button = driver.find_element(By.XPATH, "//button[text()='Sign In']")       
-        username_input.send_keys('pavi')
-        password_input.send_keys('Pavi@123')
-        login_button.send_keys(Keys.RETURN)
-
-        assert 'KSRTC' in driver.page_source
 
 
 
